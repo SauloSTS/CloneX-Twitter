@@ -1,0 +1,47 @@
+"use client"
+
+
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
+
+export const SigninForm = () => {
+    const router = useRouter();
+    const [emailField, setEmailField] = useState('');
+    const [passwordFiel, setPasswordFiel] = useState('');
+
+    const handleEnterButton = () => {
+        router.replace('/home');
+    }
+
+    return (
+        <>
+            <Input
+                placeholder="Digite seu e-mail"
+                value={emailField}
+                onChange={t => setEmailField(t)}
+                
+            />
+
+            
+
+             <Input
+                placeholder="Digite sua senha"
+                value={passwordFiel}
+                onChange={t => setPasswordFiel(t)}
+                password
+            />
+            
+            <Button 
+                label="Entrar"
+                onClick={handleEnterButton}
+                size={1}
+            />
+
+
+        </>
+    );
+}
